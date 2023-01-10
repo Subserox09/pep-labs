@@ -72,6 +72,7 @@ public class CreateATable {
 
             String createQuery ="CREATE TABLE song(title varchar(100), artist varchar(100))";
             s.executeUpdate(createQuery);
+            
         } catch (SQLException e) {
             System.out.println("problem1: " + e.getMessage() + '\n');
         }

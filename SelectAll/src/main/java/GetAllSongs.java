@@ -41,6 +41,7 @@ public class GetAllSongs {
         try {
             Connection connection = ConnectionUtil.getConnection();
             Statement s = connection.createStatement();
+            System.out.println("Reached here.");
             ResultSet rs =s.executeQuery(sql);
 
             while(rs.next()){

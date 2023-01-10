@@ -41,12 +41,22 @@ public class GetAllSongs {
         try {
             Connection connection = ConnectionUtil.getConnection();
             Statement s = connection.createStatement();
-            System.out.println("Reached here.");
-            ResultSet rs =s.executeQuery(sql);
+            s.executeUpdate(sql);
+
+            String sql1 = "CREATE TABLE song (Title varchar(100), Artist varchar(100));";
+            String sql2 = "INSERT INTO song VALUES ('Let it be', 'Beatles');";
+            String sql3 = "INSERT INTO song VALUES ('Hotel California', 'Eagles');";
+            String sql4 = "INSERT INTO song VALUES ('Kashmir', 'Led Zeppelin');";
+            String sql5 = "SELECT* FROM song;";
+
+            s.executeUpdate(sql1 + sql2 + sql3 + sql4);
+
+            ResultSet rs =s.executeQuery(sql5);
 
             while(rs.next()){
-                songs.add(new Song(rs.getString(1), rs.getString(2)));
+                songs.add(new Song(rs.getString("Title"), rs.getString("Artist")));
             }
+         
         } catch (SQLException e) {
             System.out.println("problem1: " + e.getMessage() + '\n');
         }

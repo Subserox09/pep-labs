@@ -44,17 +44,19 @@ public class GetAllSongs {
             
             s.executeUpdate(sql);
             
-/*
+
             String sql1 = "CREATE TABLE song (Title varchar(100), Artist varchar(100));";
             String sql2 = "INSERT INTO song VALUES ('Let it be', 'Beatles');";
             String sql3 = "INSERT INTO song VALUES ('Hotel California', 'Eagles');";
             String sql4 = "INSERT INTO song VALUES ('Kashmir', 'Led Zeppelin');";
-            System.out.println("Reached here at least?");
-            s.executeUpdate(sql1 + sql2 + sql3 + sql4);
-
             
-*/
+            s.executeUpdate(sql1);
+            s.executeUpdate(sql2);
+            s.executeUpdate(sql3);
+            s.executeUpdate(sql4);
+
             ResultSet rs =s.executeQuery(sql);
+            
              while(rs.next()){
                 songs.add(new Song(rs.getString(1), rs.getString(2)));
                 

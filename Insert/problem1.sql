@@ -1,1 +1,1 @@
-insert into table song (Title,Artist) values ("Footsteps","idk");
+insert into song (Title,Artist) values ('Footsteps','idk');

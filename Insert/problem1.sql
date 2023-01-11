@@ -1,0 +1,1 @@
+insert into table song (Title,Artist) values ("Footsteps","idk");

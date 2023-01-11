@@ -41,18 +41,10 @@ public class GetAllSongs {
         try {
             Connection connection = ConnectionUtil.getConnection();
             Statement s = connection.createStatement();
-            
-
-            String sql1 = "CREATE TABLE song (Title varchar(100), Artist varchar(100));";
-            String sql2 = "INSERT INTO song VALUES ('Let it be', 'Beatles');";
-            String sql3 = "INSERT INTO song VALUES ('Hotel California', 'Eagles');";
-            String sql4 = "INSERT INTO song VALUES ('Kashmir', 'Led Zeppelin');";
-            s.executeUpdate(sql1+sql2+sql3+sql4);
-            
-            ResultSet rs =s.executeQuery(sql);
+            ResultSet rs =s.executeQuery(sql);      
             
              while(rs.next()){
-                songs.add(new Song(rs.getString(1), rs.getString(2)));
+                songs.add(new Song(rs.getString("Title"), rs.getString("Artist")));
                 
             }
         } catch (SQLException e) {

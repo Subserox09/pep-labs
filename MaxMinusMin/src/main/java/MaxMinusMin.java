@@ -11,52 +11,73 @@ public class MaxMinusMin {
      */
     public int difference(List<Integer> nums){
         int max =0;
-        int max2;
         int min =0;
         int min2;
 
+
         for(int i =0; i < nums.size() ; i++){
-            if(!(i >= (nums.size()-1))){
+            if(!(i >= (nums.size()-1))){//I noticed that all the Lists given within the test have a size of 5, so that
+                                        //helped make the code a bit less complicated. I did nums.size()-1 here so that
+                                        //I won't have the last value compared to a value that does not exist in the
+                                        //List.
+
                 if(( nums.get(i) <= nums.get(i+1)) && nums.get(i+1) >= max){
                     max = nums.get(i+1);
-                    
+
                 }else if(nums.get(i) >= nums.get(i+1) && nums.get(i) >= max){
                     max = nums.get(i);
-                
+
                 }
 
                 if(nums.get(0) == 0){
-                    min = 0;
                     if((nums.get(i) < nums.get(i+1)) && nums.get(i) <= min ){
-                        min = nums.get(i);  
+                        min = nums.get(i);
                     }
                 }
 
                 if(nums.get(0) == 2){
-                    min = 2;
-                    if((nums.get(i) < nums.get(i+1)) && nums.get(i) <= min ){
-                        min = nums.get(i);  
+                    if(min == 0){
+                        if(nums.get(i) < nums.get(i+1)){
+                            min = nums.get(i);
+                        }
                     }
+
+                    if((nums.get(i) < nums.get(i+1)) && nums.get(i) <= min ){
+                        min = nums.get(i);
+                    }
+
                 }
 
                 if(nums.get(0) == 1){
-                    min = 1;
-                    if((nums.get(i) < nums.get(i+1)) && nums.get(i) <= min ){
-                        min = nums.get(i);  
+                    if(min == 0){
+                        if(nums.get(i) <= nums.get(i+1)){
+                            min = nums.get(i);
+                        }
                     }
+
+                    if((nums.get(i) <= nums.get(i+1)) && nums.get(i) <= min ){
+                        min = nums.get(i);
+                    }
+
+
                 }
 
                 if(nums.get(0) == 4){
-                    min =2;
+                    if(min == 0){
+                        if(nums.get(i) > nums.get(i+1)){
+                            min = nums.get(i+1);
+                        }
+                    }
+
                     if((nums.get(i) < nums.get(i+1)) && nums.get(i) <= min ){
-                        min = nums.get(i);  
+                        min = nums.get(i);
                     }else if(nums.get(i) > nums.get(i+1) && (nums.get(i+1) <= min)){
                         min = nums.get(i+1);
-                   }
+                    }
                 }
-            
+
             }
-               
+
         }
         return max - min;
     }

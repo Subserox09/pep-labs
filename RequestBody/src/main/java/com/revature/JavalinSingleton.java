@@ -18,6 +18,9 @@ public class JavalinSingleton {
          */
         app.post("/problem1", ctx -> {
                 //implement logic here
+                String jsonString = ctx.body();
+
+                ObjectMappper om = new ObjectMapper();
         });
 
         /**

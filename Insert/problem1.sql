@@ -1,0 +1,1 @@
+insert into song (Title,Artist) values ('Footsteps','idk');

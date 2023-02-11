@@ -69,6 +69,7 @@ public class CreateATable {
             Connection connection = ConnectionUtil.getConnection();
             Statement s = connection.createStatement();
             s.executeUpdate(sql);
+            System.out.println("sup?");
         } catch (SQLException e) {
             System.out.println("problem1: " + e.getMessage() + '\n');
         }
